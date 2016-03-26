@@ -1,0 +1,36 @@
+﻿<Page
+    x:Class="RestaurantManager.UniversalWindows.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:RestaurantManager.UniversalWindows"
+    xmlns:extensions="using:RestaurantManager.Extensions"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:i="using:Microsoft.Xaml.Interactivity"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <ControlTemplate TargetType="Button" x:Key="RoundButton">
+            <Border Background="{TemplateBinding Background}" CornerRadius="25">
+                <ContentPresenter Margin="{TemplateBinding Padding}" Foreground="{TemplateBinding Foreground}" FontSize="{TemplateBinding FontSize}" />
+            </Border>
+        </ControlTemplate>
+    </Page.Resources>
+    <i:Interaction.Behaviors>
+        <extensions:RightClickMessageDialogBehavior Message="Thanks to the team who developed this" Title="Credits" />
+    </i:Interaction.Behaviors>
+        <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.40*" />
+            <RowDefinition Height="0.10*" />
+            <RowDefinition Height="0.50*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.50*" />
+            <ColumnDefinition Width="0.50*" />
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Restaurant Manager" Style="{StaticResource HeaderTextBlockStyle}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" />
+        <TextBlock Text="Internal Test Version" Style="{StaticResource SubheaderTextBlockStyle}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" />
+        <Button Template="{StaticResource RoundButton}" Content="Go to Orders View" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0" Click="ExpeditePage_Click" />
+        <Button Template="{StaticResource RoundButton}" Content="Submit Order" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Grid.Column="1" Click="OrderPage_Click" />
+    </Grid>
+</Page>
